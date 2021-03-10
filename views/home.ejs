@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- -----For Adding Favicon------ -->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+    
+</head>
+
+<body>
+
+    <!-- <h1>Rendered from ejs view</h1> -->
+    <h1 id="page-heading">
+        <i class="fas fa-tasks"></i>
+       My Task Manager
+    </h1>
+
+
+    <form action="/create-task"  method="POST">
+
+        <!-- -------For adding description-------- -->
+        <input type="text" name="name" placeholder="Description" required id="desc">
+
+        <!-- ----------Dropdown Datalist for categories---------- -->
+        <input list="Category" name="Category" placeholder="Choose a Category" id="category-bar">
+        <datalist id="Category">
+         <option value="Personal">
+         <option value="Home">
+         <option value="Work">
+        <option value="School">
+        <option value="Other">
+       </datalist>
+
+       <!-- ---------Input for Date--------- -->
+       <input type="date" id="due-date" name="due_date" >
+
+        <button type="submit">ADD TASK</button>
+
+    </form>
+
+  
+
+    <!-- -----Div for showing list of tasks ------- -->
+    <div id="task-list">
+        <ul>
+            <!-- -----Delete button ----- -->
+            <form action="/delete-todo" method="GET">
+                <button type="submit"   id="delete-button"> DELETE TASK</button>
+
+            <% for(let i of task_list){ %>
+                <li>
+                   
+                    <!-- ----Description-- -->
+                    <p> 
+                     <!-- ----Checkbox---- -->
+                    <span >
+                        <input type="checkbox" class="custom-control-input" name="id"  value="<%=i._id%>"  id="check">
+                    </span>
+
+                       <span style=" position: relative; bottom:15px;"> <%= i.name %> </span>
+
+                     </p>
+
+                    <!-- -----due date---- -->
+                    <p style="position:relative; bottom:12px;">
+                        <!-- ------Adding the calendar image--- -->
+                        <img src="https://icon-library.com/images/calendar-icon-svg/calendar-icon-svg-13.jpg" style="height: 40px; width: 40px;position: relative;left: 4px; top: 9px;"> 
+                         <%= i.due_date %> 
+                        </p>
+
+                        <!-- -----Category----- -->
+                        
+                        <p> 
+                            <div class="category-box">
+                            <%= i.Category %>
+                           </div>
+                     </p>
+                    
+                </li>
+            <% } %>
+        </form>
+        </ul>
+    </div>
+    
+
+    <!-- ------Adding vanta.js dynamic background to the web page----- -->
+     <script src="/js/three.r119.min.js"></script>
+    <script src="/js/vanta.net.min.js"></script>
+    <script>
+    VANTA.NET({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0xe80f5e,
+    backgroundColor: 0x60622,
+    points: 8.00,
+    maxDistance: 22.00,
+    showDots: false
+    })
+    </script>
+
+
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>
