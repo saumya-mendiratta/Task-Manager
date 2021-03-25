@@ -7,7 +7,7 @@ It is a basic TO-DO list web app made using NodeJS, ExpressJs, and MongoDB. You 
 2. Fork, Clone or download and open this repository in a terminal/command prompt.
 3. Execute npm install.
 4. Execute npm start.
-5. Open your preferred web browser and go to http://localhost:9000.
+5. Open your preferred web browser and go to `http://localhost:9000`.
 
 # Features/Functionalities
 
