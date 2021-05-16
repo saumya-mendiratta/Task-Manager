@@ -1,6 +1,8 @@
 # Task-Manager
 It is a basic TO-DO list web app made using NodeJS, ExpressJs, and MongoDB. You can add and delete tasks from this. Multiple deletions are also possible
 
+<h2> Live Preview : http://3.21.100.139:9000/
+
 # Instructions
 
 1. Install NodeJs (nodejs.org).
