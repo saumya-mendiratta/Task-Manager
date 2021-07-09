@@ -4,7 +4,11 @@
 const mongoose = require ('mongoose');
 
 //Connect to DB
-mongoose.connect('mongodb://localhost/todo', {useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect('mongodb://localhost/todo', {useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connect("mongodb+srv://saumya2828:9871535223@cluster0.zovc5.mongodb.net/saumya-todo-db?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false ,useCreateIndex:true}).then(()=>{
+    console.log("Mongodb connected");
+});
 
 //Acquire the connection (to check if it is succesful)
 const db = mongoose.connection;
